@@ -50,7 +50,7 @@ const App = () => {
     return (
         <Wrapper>
             <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
-                Cart goes here
+               <Cart cartItems={cartItems} addToCart={handleAddToCart} removeFromCart={handleRemoveFromCart}></Cart>
             </Drawer>
         <StyledButton onClick={() => setCartOpen(true)}>
             <Badge badgeContent={getTotalItems(cartItems)} color="error">
