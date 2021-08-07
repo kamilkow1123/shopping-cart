@@ -10,6 +10,7 @@ import Item from "./Item/Item";
 import Cart from "./Cart/Cart";
 //styles
 import { Wrapper, StyledButton } from "./App.styles";
+import CartItem from "./CartItem/CartItem";
 
 //types
 export type CartItemType = {
@@ -53,7 +54,19 @@ const App = () => {
         })
     };
 
-    const handleRemoveFromCart = () => null;
+    const handleRemoveFromCart = (id: number) => {
+        setCartItems(prev =>
+            prev.reduce((acc, item) => {
+                if(item.id === id){
+                    if(item.amount === 1) return acc;
+                    return [...acc, {...item, amount: item.amount - 1}]
+                }
+                else{
+                    return [...acc, item];
+                }
+            }, [] as CartItemType[])
+        );
+    };
 
     if (isLoading) return <LinearProgress/>;
 
