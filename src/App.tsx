@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 //components
 import Drawer from "@material-ui/core/Drawer";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Grid from "@material-ui/core/Grid";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
@@ -75,6 +78,11 @@ const App = () => {
     return (
         <Wrapper>
             <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(false)}>
+                <DialogTitle disableTypography >
+                    <IconButton onClick={() => setCartOpen(false)}>
+                        <CloseIcon />
+                    </IconButton>
+                </DialogTitle>
                <Cart cartItems={cartItems} addToCart={handleAddToCart} removeFromCart={handleRemoveFromCart}></Cart>
             </Drawer>
         <StyledButton onClick={() => setCartOpen(true)}>

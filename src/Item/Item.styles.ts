@@ -25,5 +25,8 @@ export const Wrapper = styled.div`
         font-family: Arial, sans-serif;
         padding: 1rem;
         height: 100%;
+        /* display: flex;
+        flex-direction: column;
+        justify-content: flex-end; */
     }
 `;
